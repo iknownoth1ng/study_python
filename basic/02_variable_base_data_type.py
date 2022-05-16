@@ -58,25 +58,49 @@ f2 = 2.2
 print(f1+f2)  # 浮点数计算不精确
 print(Decimal('1.1')+Decimal('2.2'))
 # 布尔值
-b1=True
-b2=False
-print(b1,type(b1))  
-print(b2,type(b2))  
+b1 = True
+b2 = False
+print(b1, type(b1))
+print(b2, type(b2))
 
 print(True+1)
 print(False+1)
 
 # 字符串
-s1='ok,fine'
-s2="ok,fine"
-s3='''ok,
+s1 = 'ok,fine'
+s2 = "ok,fine"
+s3 = '''ok,
 fine'''
 print(s3)
-print(s1,s2,s3,type(s1),type(s2),type(s3))
+print(s1, s2, s3, type(s1), type(s2), type(s3))
 
 '''
 基本数据类型之间的转换
 '''
-name='张三'
-age=18
+# str()
+name = '张三'
+age = 18
 print('我的名字叫：'+name+' 今年'+str(age)+'岁了')
+
+a = 1.1415
+c = False
+print(type(a), type(c), type(str(a)), type(str(c)))
+
+# int() 不能转文字类型和小数类型的字符串
+a = 'abc'
+b = '1.1'
+#print(int(a), int(b))
+c = False
+# 浮点数会取整
+d = 3.1
+print(int(c), int(d))
+
+
+# float() 文字类字符串类无法转成整数
+print(float('1'))
+print(float('1.12'))
+
+# print(float("abc"))
+# 整数转成浮点型，末尾会加.0
+print(float(1))
+print(float(True))
