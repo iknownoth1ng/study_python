@@ -25,10 +25,58 @@
   PI=3.14
 
 '''
-#
+# 变量，规则：变量名 赋值运算符 值
+from decimal import Decimal
+a = 'maria'
+print(a)
+print('id: ', id(a))
+print('type: ', type(a))
+print('value: ', a)
 
+a = 'machael'
+print("id: ", id(a))
 
+'''
+基本数据类型
+整数(int)
+浮点数((float)
+字符串(str)
+布尔值(bool)
+'''
 # 整数
+a = 10
+b = 0b110
+c = 0o170
+d = 0xA
+print(a, b, c, d, type(a), type(b), type(c), type(d))
+
 # 浮点数
-# 字符串
+f = 3.1415
+print(f, type(f))
+f1 = 1.1
+f2 = 2.2
+print(f1+f2)  # 浮点数计算不精确
+print(Decimal('1.1')+Decimal('2.2'))
 # 布尔值
+b1=True
+b2=False
+print(b1,type(b1))  
+print(b2,type(b2))  
+
+print(True+1)
+print(False+1)
+
+# 字符串
+s1='ok,fine'
+s2="ok,fine"
+s3='''ok,
+fine'''
+print(s3)
+print(s1,s2,s3,type(s1),type(s2),type(s3))
+
+'''
+基本数据类型之间的转换
+'''
+name='张三'
+age=18
+print('我的名字叫：'+name+' 今年'+str(age)+'岁了')
