@@ -137,3 +137,62 @@ for i in range (100, 1000):
     bai=i//100
     if i==bai**3+shi**3+ge**3:
         print(i)
+
+# break 跳出循环
+for i in range(3):
+    pwd=input("请输入密码：")
+    if pwd=='8888':
+        print('密码正确')
+        break
+    else:
+        print("密码不正确")
+
+a=0
+while a<3:
+    pwd=input("请输入密码：")
+    if pwd=='8888':
+        print('密码正确')
+        break
+    else:
+        print("密码不正确")
+    a+=1
+
+# continue 结束当前循环，进入下一次循环
+for i in range(1,51):
+    if i%5!=0:
+        continue
+    print(i)
+
+# else 可以与if、while、for搭配使用
+# 与while、for搭配使用时，只有 不遇到break才执行
+for i in range(3):
+    pwd=input("请输入密码：")
+    if pwd=='8888':
+        print('密码正确')
+        break
+    else:
+        print("密码不正确")
+else:
+    print("三次密码均输入错误")
+
+# 嵌套循环
+# 打印一个三行四列的矩形
+for i in range(1,4) :
+    for j in range(1,5):
+        print('*',end="\t")
+    print()
+
+# 打印一个九九乘法表
+for i in range (1,10) :
+    for j in range(1,i+1):
+        print('%d*%d=%d'%(i,j,i*j),end='\t')
+    print()
+
+# 二层循环的break和continue
+for i in range(5):
+    for j in range(1,11):
+        if j%2==0:
+            #break
+            continue
+        print(j,end="\t")
+    print()
