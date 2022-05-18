@@ -17,8 +17,6 @@
 ·5、列表推导式
 '''
 # 创建列表
-from audioop import reverse
-
 
 list1 = ['hello', 'world', 98]
 list2 = list(['hello', 'world', 98])
