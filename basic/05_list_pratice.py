@@ -17,6 +17,9 @@
 ·5、列表推导式
 '''
 # 创建列表
+from audioop import reverse
+
+
 list1 = ['hello', 'world', 98]
 list2 = list(['hello', 'world', 98])
 print(id(list1))
@@ -98,15 +101,15 @@ lst.pop()
 print(lst)
 
 # 切片删除，一次至少删除一个元素，但是产生一个新的对象
-lst = [10, 20, 30, 40, 50,60]
+lst = [10, 20, 30, 40, 50, 60]
 print(lst, id(lst))
 
 # 产生新对象
-new_list=lst[1:3]
-print(new_list,id(new_list))
+new_list = lst[1:3]
+print(new_list, id(new_list))
 
 # 不产生新对象
-lst[1:3]=[]
+lst[1:3] = []
 print(lst, id(lst))
 
 # clear 清空列表
@@ -115,3 +118,32 @@ print(lst)
 # del 删除列表
 del lst
 # print(lst) #NameError: name 'lst' is not defined
+
+# 修改操作
+lst = [10, 20, 30, 40]
+print(lst, id(lst))
+lst[2] = 100
+print(lst, id(lst))
+lst[1:3] = [100, 200, 300, 400]
+print(lst, id(lst))
+
+# 列表的排序
+lst=[20,40,10,98,54]
+print('排序前的列表',lst, id(lst)) 
+# sort方法，默认升序排序
+lst.sort()
+print('排序后的列表',lst, id(lst)) 
+lst.sort(reverse=True)
+print('倒序后的列表',lst, id(lst)) 
+
+# sorted()内置函数，产生一个新列表，对原列表不改变
+lst=[20,40,10,98,54]
+print(lst, id(lst))
+new_list=sorted(lst)
+print(new_list, id(new_list))
+new_list = sorted(lst, reverse=True)
+print(new_list, id(new_list))
+
+# 列表生产式
+lst=[i*i for i in range(1,10)]
+print(lst, id(lst))
