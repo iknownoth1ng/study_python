@@ -142,6 +142,6 @@ print(new_list, id(new_list))
 new_list = sorted(lst, reverse=True)
 print(new_list, id(new_list))
 
-# 列表生产式
+# 列表生成式
 lst=[i*i for i in range(1,10)]
 print(lst, id(lst))
