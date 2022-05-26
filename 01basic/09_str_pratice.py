@@ -132,26 +132,108 @@ print(s1.rsplit(sep='|'))
 print(s1.rsplit(sep='|', maxsplit=1))
 
 # 判断字符串的操作方法
-s='hello,python'
-print(s.isidentifier()) # False
-print('hello'.isidentifier()) #True
-print('张三_'.isidentifier()) # True
-print('张三_123'.isidentifier()) # True
+s = 'hello,python'
+print(s.isidentifier())  # False
+print('hello'.isidentifier())  # True
+print('张三_'.isidentifier())  # True
+print('张三_123'.isidentifier())  # True
 print()
-print('\t'.isspace()) # True
+print('\t'.isspace())  # True
 print()
-print('abc'.isalpha()) # True
-print('张三'.isalpha()) # True
-print('张三1'.isalpha())# False
+print('abc'.isalpha())  # True
+print('张三'.isalpha())  # True
+print('张三1'.isalpha())  # False
 print()
-print('123'.isdecimal()) # True
-print('123四'.isdecimal()) # False
+print('123'.isdecimal())  # True
+print('123四'.isdecimal())  # False
 print('Ⅲ'.isdecimal())  # False
 print()
 print('123'.isnumeric())  # True
-print('123四'.isnumeric()) # True
-print('Ⅲ'.isnumeric()) # True
+print('123四'.isnumeric())  # True
+print('Ⅲ'.isnumeric())  # True
 print()
-print('abc1'.isalnum()) # True
-print('张三123'.isalnum()) # True
-print('abc!'.isalnum()) # False
+print('abc1'.isalnum())  # True
+print('张三123'.isalnum())  # True
+print('abc!'.isalnum())  # False
+
+# 字符串的其他操作
+# replace()替换
+s = 'hello python'
+print(s.replace('python', 'java'))
+s = 'hello python python python'
+print(s.replace('python', 'java', 2))  # 替换两次
+
+# join()将列表或元组中的字符串合并成一个字符串
+lst = ['hello', 'python', 'java']
+print(''.join(lst))
+print("|".join(lst))
+
+t1 = ('hello', 'python', 'java')
+print(''.join(t1))
+print("|".join(t1))
+
+print('*'.join('python'))
+
+
+# 字符串的比较操作
+print('apple' > 'app')
+print('apple' > 'banana')
+print(ord('a'), ord("b"))  # ord()原始值
+print(chr(97), chr(98))  # chr()对应字符
+
+'''
+==比较的是value
+is比较的内存地址id
+'''
+a = b = 'python'
+c = 'python'
+print(a == b, b == c)
+print(id(a), id(b), id(c))
+
+# 字符串的切片操作
+s = 'hello,python'
+s1 = s[:5]
+s2 = s[6:]
+s3 = '!'
+newstr = s1+s3+s2
+print(s1)
+print(s2)
+print(newstr)
+print(id(s))
+print(id(s1))
+print(id(s2))
+print(id(s3))
+print(id(newstr))
+
+print(s[:5:-1])
+print(s[5::-1])
+
+# 格式化字符串
+# 1.使用%占位符
+name = '张三'
+age = 18
+print('我的名字叫%s,今年%d岁了' % (name, age))
+# 2.使用{}占位符
+print("我的名字叫{0},今年{1}岁了,我真的叫{0}".format(name, age))
+# 3.f-string
+print(f'我的名字叫{name},今年{age}岁了')
+
+print('%10d' % 99)  # 10表示的是总共宽度,右对齐
+print('%-10d' % 99)  # 左对齐
+print('%.3f' % 3.1415926)  # .3表示的是小数点后三位
+print('%10.3f' % 3.1415926)  # 同时表示精度和宽度
+
+print('growth rate: %d %%' % 7)  # 用%%来表示一个%
+
+print('{0:.3}'.format(3.1415926))  # 3.14
+print('{0:.3f}'.format(3.1415926))  # 3.142
+print('{0:10.3f}'.format(3.1415926))  # 同时表示精度和宽度
+
+# 字符串的编码和解码
+s='天涯共此时'
+# b代表二进制,一个中文在GBK占用2个字节，在UTF-8占用3个字节
+print(s.encode(encoding='GBK')) #  b'\xcc\xec\xd1\xc4\xb9\xb2\xb4\xcb\xca\xb1'
+print(s.encode(encoding='UTF-8'))# b'\xe5\xa4\xa9\xe6\xb6\xaf\xe5\x85\xb1\xe6\xad\xa4\xe6\x97\xb6'
+
+b=s.encode(encoding='GBK')
+print(b.decode(encoding="GBK")) #天涯共此时
