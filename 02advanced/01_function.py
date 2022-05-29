@@ -130,15 +130,62 @@ print(fun([10, 29, 34, 33, 44, 53, 55]))
 
 # 变量的定义域
 def fun1():
-    age=18
+    age = 18
     print(age)
 
 # print(age) 局部变量不能访问
 
+
 def fun2():
-    global name # global 定义为全局变量
-    name='张三'
+    global name  # global 定义为全局变量
+    name = '张三'
     print(name)
+
 
 fun2()
 print(name)
+
+
+# 递归函数
+# 使用递归计算阶乘
+def fac(n):
+    if n == 1:
+        return 1
+    else:
+        return n*fac(n-1)
+
+
+print(fac(6))
+
+# 斐波那契数列
+
+
+def fib(n):
+    if n == 1 or n == 2:
+        return 1
+    else:
+        return fib(n-1)+fib(n-2)
+
+
+print(fib(6))
+
+# 汉诺塔的移动可以用递归函数非常简单地实现。
+# 请编写move(n, a, b, c)函数，它接收参数n，表示3个柱子A、B、C中第1个柱子A的盘子数量，然后打印出把所有盘子从A借助B移动到C的方法，例如：
+
+
+def move(n, a, b, c):
+    # 如果n=1,直接a到c
+    if n == 1:
+        print(a, '-->', c)
+    # n＞1,视为1个最大的圆盘和剩余n-1个圆盘当一个整体移动,
+    # 那n-1个移到b,最大那个移到c,即可实现递归
+    else:
+        move(n-1, a, c, b)  # n-1个以整体移到b
+        print(a, '-->', c)  # 剩下那个最大的移到c
+        move(n-1, b, a, c)  # n-1个变成新的问题:如何将n-1个从b移到c.(递归即可)
+
+
+move(2, 'A', 'B', 'C')
+
+
+# lambda表达式，用于创建小巧的匿名函数
