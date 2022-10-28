@@ -1,5 +1,4 @@
-from pyfiglet import FigletFont
-from pyfiglet import Figlet
+from pyfiglet import Figlet, FigletFont
 from rich import print
 
 

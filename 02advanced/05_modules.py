@@ -8,15 +8,15 @@
 @Desp    :   模块
 '''
 
-# here put the import lib
-import schedule
-import time
-import sys
 import builtins
 import math  # 使用import只能导入模块、包
+import sys
+import time
 from math import pow  # 使用from可以导入包、模块、函数、变量
 
 import mypackage.mymodule as md
+# here put the import lib
+import schedule
 from mypackage.mymodule import a
 
 print(id(math))  # 2267991424360

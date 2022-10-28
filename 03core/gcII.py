@@ -8,9 +8,10 @@
 @Desp    :   垃圾回收
 '''
 
+import gc
 # here put the import lib
 import sys
-import gc
+
 '''
 1. 小整数对象池
 整数在程序中的使用非常广泛，Python为了优化速度，使用了小整数对象池， 避免为整数频繁申请和销毁内存空间。

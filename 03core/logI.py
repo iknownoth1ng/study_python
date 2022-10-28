@@ -10,8 +10,8 @@
 
 # here put the import lib
 # DEBUG —>INFO —> WARNING —> ERROR —> CRITICAL
-import logging  
-  
+import logging
+
 # logging.basicConfig(level=logging.WARNING,  
 #                     format='%(asctime)s - %(filename)s[line:%(lineno)d] - %(levelname)s: %(message)s')  
 

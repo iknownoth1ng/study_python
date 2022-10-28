@@ -50,5 +50,6 @@ GC系统所承担的工作远比"垃圾回收"多得多。实际上，它们负�
 '''
 # 3、查看一个对象的引用计数
 import sys
+
 a = "hello world"
 sys.getrefcount(a)

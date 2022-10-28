@@ -21,6 +21,7 @@
 
 
 import sys
+
 a = 'python'
 b = "python"
 c = '''python'''

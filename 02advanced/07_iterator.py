@@ -18,8 +18,8 @@
 # 2.什么是迭代
 '''迭代是访问集合元素的一种方式
 '''
-from collections.abc import Iterable
-from collections.abc import Iterator
+from collections.abc import Iterable, Iterator
+
 nums = [11, 22, 33]
 for _ in nums:
     print(_)

@@ -28,6 +28,7 @@ print函数
 import keyword
 from sys import prefix
 from tracemalloc import start
+
 print(520)
 print(98.5)
 

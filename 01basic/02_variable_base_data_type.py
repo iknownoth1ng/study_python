@@ -27,6 +27,7 @@
 '''
 # 变量，规则：变量名 赋值运算符 值
 from decimal import Decimal
+
 a = 'maria'
 print(a)
 print('id: ', id(a))

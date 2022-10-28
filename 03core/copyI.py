@@ -12,6 +12,7 @@
 import copy
 import os
 
+
 def count_file(files):
     """
     测试列表中，非隐藏文件的个数

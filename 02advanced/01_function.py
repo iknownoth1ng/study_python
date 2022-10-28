@@ -8,10 +8,11 @@
 @Desp    :   函数
 '''
 
-# here put the import lib
-from functools import reduce
 import functools
 import time
+# here put the import lib
+from functools import reduce
+
 '''
 ·1、函数的创建和调用
 ·2、函数的参数传递

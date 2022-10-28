@@ -11,8 +11,9 @@
 # here put the import lib
 import gc
 import os
-import psutil
 import sys
+
+import psutil
 
 # 显示当前 python 程序占用的内存大小
 
