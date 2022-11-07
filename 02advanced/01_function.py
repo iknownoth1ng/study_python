@@ -10,6 +10,7 @@
 
 import functools
 import time
+
 # here put the import lib
 from functools import reduce
 
