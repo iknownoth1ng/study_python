@@ -1,8 +1,8 @@
 # 查看子进程的父进程id
-from multiprocessing import Process
-import time
-import os
 import random
+import time
+from multiprocessing import Process
+
 
 def task(n):
     time.sleep(random.randint(1, 3))
