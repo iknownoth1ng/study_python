@@ -1,17 +1,26 @@
+# 查看子进程的父进程id
 from multiprocessing import Process
+import time
+import os
+import random
 
-n=100
-
-def work():
-    global n
-    n=0
-    print("子进程n：{}".format(n))
+def task(n):
+    time.sleep(random.randint(1, 3))
+    print("--------->{}".format(n))
+    
 
 if __name__ == "__main__":
     __spec__ = "ModuleSpec(name='builtins', loader=<class '_frozen_importlib.BuiltinImporter'>)"
 
-    p=Process(target=work,)
-    p.start()
-    p.join()
+    start_time = time.time()
+    p1=Process(target=task,args=(1,))
+    p2=Process(target=task,args=(2,))
+    p3=Process(target=task,args=(3,))
+    p_l=[p1,p2,p3]
+    
+    for p in p_l:
+        p.start() # 仅仅只是给操作系统发送了一个信号
+        p.join()
 
-    print("主进程n：{}".format(n))
+
+    print('--------->4')
