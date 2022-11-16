@@ -1,12 +1,25 @@
-from multiprocessing import Process
-import os
+from threading import Thread,Lock
+import time
 
-def task():
-    print(f"子进程ID：{os.getpid()},父进程ID：{os.getppid()}")
+n=100
+
+def task(mutex):
+    global n 
+    mutex.acquire()
+    temp=n
+    time.sleep(0.1)
+    n=temp-1
+    mutex.release()
 
 if __name__ == "__main__":
-    p1=Process(target=task)
-    p1.start()
-
-    print("主进程ID",os.getpid()) 
+    mutex=Lock()
+    t_L=[]
+    for _ in range(100):
+        t=Thread(target=task,args=(mutex,))
+        t_L.append(t)
+        t.start()
+        
+    for t in t_L:
+        t.join()
     
+    print('主线程',n) #! 0
