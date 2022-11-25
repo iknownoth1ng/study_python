@@ -1,25 +1,14 @@
-from threading import Thread,Lock
-import time
+from threading import Thread,Semaphore,currentThread
+import time,random
 
-n=100
+sm=Semaphore(3)
 
-def task(mutex):
-    global n 
-    mutex.acquire()
-    temp=n
-    time.sleep(0.1)
-    n=temp-1
-    mutex.release()
-
-if __name__ == "__main__":
-    mutex=Lock()
-    t_L=[]
-    for _ in range(100):
-        t=Thread(target=task,args=(mutex,))
-        t_L.append(t)
-        t.start()
-        
-    for t in t_L:
-        t.join()
+def task():
+    with sm: #* 等效于sm.acquire()  sm.release()
+        print(f"{currentThread().getName()} in")
+        time.sleep(random.randint(1,3))
     
-    print('主线程',n) #! 0
+if __name__ == "__main__":
+    for _ in range(10):
+        t=Thread(target=task)
+        t.start()
