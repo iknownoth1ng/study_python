@@ -35,7 +35,7 @@ def consumer(q,name):
         res=q.get() #* 如果不是守护进程，会一直在这里等着取数据
         if res is None: break
         print(f"{name} 消费了 {res}")
-        q.task_done() #* 像队列发送取完一个数据的信号
+        q.task_done() #* 向队列发送取完一个数据的信号
     
 if __name__=="__main__":
     #* 容器
