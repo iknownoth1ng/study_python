@@ -1,5 +1,6 @@
 from socket import *
 from threading import Thread
+from concurrent.futures import ThreadPoolExecutor
 
 def talk(conn):
     while True:
@@ -21,11 +22,13 @@ def server(ip,port):
     server.listen(5)
     while True:
         conn,add=server.accept()
-        t=Thread(target=talk,args=(conn,))
-        t.start()
+        # t=Thread(target=talk,args=(conn,))
+        # t.start()
+        pool.submit(talk,conn)
 
     server.close()    
 
 
 if __name__ == "__main__":
+    pool=ThreadPoolExecutor(2)
     server('127.0.0.1', 8080)
