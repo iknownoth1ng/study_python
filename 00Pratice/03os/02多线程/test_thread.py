@@ -1,33 +1,15 @@
-from threading import Timer
-import random
+from concurrent.futures import ThreadPoolExecutor
+from threading import currentThread
+import os,time,random
 
-class Code:
-    def __init__(self):
-        self.make_cached()
-    
-    def make_cached(self,interval=10):
-        self.cache=self.make_code()
-        print(self.cache)
-        self.t=Timer(interval,self.make_cached)
-        self.t.start()
-    
-    def make_code(self,n=4):
-        res=''
-        for _ in range(n):
-            s1=str(random.randint(0,9))
-            s2=chr(random.randint(65,90))
-            res+=random.choice([s1,s2])
-        return res
-    
-    def check(self):
-        while True:
-            code=input("请输入验证码==>: ").strip()
-            if code.upper()==self.cache:
-                print('密码输入正确！')
-                self.t.cancel()
-                break
-            
-    
+def task(n):
+    print(f"{currentThread().getName()} is running, pid is {os.getpid()}")
+    time.sleep(random.randint(1,3))
+    return n*n
+
 if __name__ == "__main__":
-    c=Code()
-    c.check()
+    pool=ThreadPoolExecutor(max_workers=5)
+    
+    pool.map(task,range(1,12))
+
+    print('主')
