@@ -10,7 +10,6 @@ def task(n):
     
 
 if __name__ == "__main__":
-    __spec__ = "ModuleSpec(name='builtins', loader=<class '_frozen_importlib.BuiltinImporter'>)"
 
     start_time = time.time()
     p1=Process(target=task,args=(1,))
