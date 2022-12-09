@@ -1,15 +1,14 @@
-from concurrent.futures import ThreadPoolExecutor
-from threading import currentThread
-import os,time,random
+from threading import Thread
+import time
 
-def task(n):
-    print(f"{currentThread().getName()} is running, pid is {os.getpid()}")
-    time.sleep(random.randint(1,3))
-    return n*n
+def task(name):
+    print(f"{name} is running")
+    time.sleep(1)
+    print(f"{name} is done")
 
 if __name__ == "__main__":
-    pool=ThreadPoolExecutor(max_workers=5)
-    
-    pool.map(task,range(1,12))
+    t1=Thread(target=task,args=("子线程1",))
+    t1.start()
 
-    print('主')
+    print("主线程") #* 资源角度看是主进程，执行角度看是主线程
+    
