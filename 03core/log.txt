@@ -1,7 +1,1 @@
-2022-06-23 14:36:55,919 - <string>[line:33] - WARNING: 这是 loggging a warning message
-2022-06-23 14:36:55,919 - <string>[line:34] - ERROR: 这是 an loggging error message
-2022-06-23 14:36:55,919 - <string>[line:35] - CRITICAL: 这是 loggging critical message
-2022-06-23 14:45:11,991 - logII.py[line:39] - INFO: 这是 logger info message
-2022-06-23 14:45:11,992 - logII.py[line:40] - WARNING: 这是 logger warning message
-2022-06-23 14:45:11,992 - logII.py[line:41] - ERROR: 这是 logger error message
-2022-06-23 14:45:11,992 - logII.py[line:42] - CRITICAL: 这是 logger critical message
+hello world
