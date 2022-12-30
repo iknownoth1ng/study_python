@@ -14,4 +14,3 @@ pool=ThreadPoolExecutor(max_workers=5)
 for i in range(10):
     fut=pool.submit(func,i)
     print(fut)
-    
