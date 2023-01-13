@@ -3,7 +3,7 @@ import unittest
 from pprint import pprint
 
 pprint(sys.path)
-from test.basic.calculator import Calculator 
+from tests.basic.calculator import Calculator
 
 
 class TestCalculator(unittest.TestCase):
