@@ -1,14 +1,25 @@
-from threading import Thread
+import threading
 import time
 
-def task(name):
-    print(f"{name} is running")
-    time.sleep(1)
-    print(f"{name} is done")
+lock = threading.Lock()
+n = 0
 
-if __name__ == "__main__":
-    t1=Thread(target=task,args=("子线程1",))
-    t1.start()
 
-    print("主线程") #* 资源角度看是主进程，执行角度看是主线程
-    
+def foo():
+    global n
+    with lock:
+        temp = n
+        time.sleep(0.1)
+        n = temp + 1  #! 不安全
+
+
+threads = []
+for _ in range(100):
+    t = threading.Thread(target=foo)
+    threads.append(t)
+    t.start()
+
+for t in threads:
+    t.join()
+
+print(n)
