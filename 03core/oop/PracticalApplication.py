@@ -5,7 +5,7 @@
 @Time    :   2023/01/10 21:33:05
 @Author  :   owl
 @Email   :   xxxxx@163.com
-@Desp    :   这是在真实类中使用数据验证器的方法：
+@Desp    :   这是在真实类中使用数据验证器的方法：https://www.cnblogs.com/weiweivip666/p/17299024.html
 """
 
 # here put the import lib
@@ -13,7 +13,6 @@ from CustomValidator import *
 
 
 class Component:
-
     name = String(minsize=3, maxsize=10, predicate=str.isupper)
     kind = OneOf("wood", "metal", "plastic")
     quantity = Number(minvalue=0)
