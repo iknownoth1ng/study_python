@@ -5,7 +5,7 @@
 @Time    :   2023/01/31 16:06:55
 @Author  :   owl
 @Email   :   xxxxx@163.com
-@Desp    :   常用的魔术方法
+@Desp    :   常用的魔术方法 https://www.bilibili.com/video/BV1tG4y1K7xG/?spm_id_from=pageDriver&vd_source=002a329d5a6f5498931adabaffce19bc
 """
 
 # here put the import lib
