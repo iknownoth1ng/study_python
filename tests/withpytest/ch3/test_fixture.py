@@ -1,0 +1,34 @@
+from typing import Literal
+
+import pytest
+
+
+@pytest.fixture()
+def some_data() -> Literal[42]:
+    """Return answer to ultimate question."""
+    return 42
+
+
+def test_some_data(some_data: Literal[42]) -> None:
+    """Use fixture return value in a test"""
+    assert some_data == 42
+
+
+@pytest.fixture()
+def some_other_data():
+    """Raise an exception from fixture."""
+    x = 43
+    assert x == 42
+
+
+def test_other_data(some_other_data):
+    assert some_other_data
+
+
+@pytest.fixture()
+def a_tuple():
+    return (1, "foo", None, {"bar": 23})
+
+
+def test_a_tuple(a_tuple) -> None:
+    assert a_tuple[3]["bar"] == 32
