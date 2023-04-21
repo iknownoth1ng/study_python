@@ -32,3 +32,32 @@ def a_tuple():
 
 def test_a_tuple(a_tuple) -> None:
     assert a_tuple[3]["bar"] == 32
+
+
+# * 练习
+# 添加返回数据的fixture函数，例如返回列表、元组、字典等
+@pytest.fixture(scope="module")
+def list_data():
+    print("fixture-list_data运行前")
+    yield [1, 2, 3]
+    print("fixture-list_data运行后")
+
+
+@pytest.fixture()
+def tuple_data():
+    return (1, 2, 3)
+
+
+@pytest.fixture()
+def dict_data():
+    return {1: "hello", 2: "world"}
+
+
+def test_list_data1(list_data):
+    l = list_data
+    assert l == [1, 2, 3]
+
+
+def test_list_data2(list_data):
+    l = list_data
+    assert type(l) is list
