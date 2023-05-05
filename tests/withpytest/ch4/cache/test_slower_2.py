@@ -1,15 +1,16 @@
-import pytest
 import datetime
 import random
 import time
 from collections import namedtuple
 
-Duration = namedtuple('Duration', ['current', 'last'])
+import pytest
+
+Duration = namedtuple("Duration", ["current", "last"])
 
 
-@pytest.fixture(scope='session')
+@pytest.fixture(scope="session")
 def duration_cache(request):
-    key = 'duration/testdurations'
+    key = "duration/testdurations"
     d = Duration({}, request.config.cache.get(key, {}))
     yield d
     request.config.cache.set(key, d.current)
@@ -28,6 +29,12 @@ def check_duration(request, duration_cache):
         assert duration <= (d.last[nodeid] * 2), errorstring
 
 
-@pytest.mark.parametrize('i', range(5))
+@pytest.mark.parametrize("i", range(5))
 def test_slow_stuff(i):
     time.sleep(random.random())
+
+
+if __name__ == "__main__":
+    # pytest.main(["-q", "--cache-clear", __file__])
+    pytest.main(["-q",  __file__])
+# end main
