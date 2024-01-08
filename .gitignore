@@ -1,6 +1,4 @@
-.vscode/
 .pytest_cache/
 !.gitignore
 __pycache__/
-.history/
 .mypy_cache/
