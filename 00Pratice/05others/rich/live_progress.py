@@ -1,12 +1,3 @@
-#!/usr/bin/env python
-# -*- encoding: utf-8 -*-
-"""
-@File    :  progress_display.py
-@Time    :  2024/12/03 22:23:48
-@Author  :  owl
-@Desp    : 进度条
-"""
-
 """
 
 Demonstrates the use of multiple Progress instances in a single Live display.    
@@ -17,8 +8,9 @@ from time import sleep
 
 from rich.live import Live
 from rich.panel import Panel
-from rich.progress import BarColumn, Progress, SpinnerColumn, TextColumn
+from rich.progress import Progress, SpinnerColumn, BarColumn, TextColumn
 from rich.table import Table
+
 
 job_progress = Progress(
     "{task.description}",
